@@ -30,7 +30,7 @@ async def chat_with_replit(message, history):
   stream = await client.chat.completions.create(
       messages=messages,
       model="llama3-70b-8192",
-      temperature=1,
+      temperature=0.1,
       max_tokens=1024,
       top_p=1,
       stop=None,
@@ -51,6 +51,7 @@ with gr.Blocks(fill_height=True, head=js) as demo:
                    undo_btn=None,
                    retry_btn=None,
                    fill_height=True,
+                   title="🙊 Chat with Groq",
                    examples=[
                        "Plan a three-day trip to Yosemite National Park",
                        "What's fun to do in San Francisco?",
